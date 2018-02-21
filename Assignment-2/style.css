@@ -1,0 +1,82 @@
+html, body{
+  margin: 0;
+  font-family: "Helvetica", sans-serif;
+  font-size: 11pt;
+  background: #f1f1f1;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #DF6D40;
+  transition: all .75s ease;
+}
+
+a:hover {
+  color: cornflowerblue;
+}
+
+table {
+  text-align: left;
+  min-width: 550px;
+  height: auto;
+  margin: auto;
+  opacity: 0;
+  animation: fade-in 0.75s ease forwards;
+  animation-delay: 0.85s;
+  background-color: #414347;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+th {
+  padding: 15px 0px;
+}
+
+td {
+  padding: 10px 0px;
+}
+
+.prev {
+  position: fixed;
+  left: 2%;
+  top: 50%;
+  margin-top: -8.5px;
+  text-decoration: none;
+  opacity: 0;
+  animation: fade-in 0.75s ease forwards;
+  animation-delay: 1.25s;
+}
+
+.next {
+  position: fixed;
+  right: 2%;
+  top: 50%;
+  margin-top: -8.5px;
+  text-decoration: none;
+  opacity: 0;
+  animation: fade-in 0.75s ease forwards;
+  animation-delay: 1.25s;
+}
