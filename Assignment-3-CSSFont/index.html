@@ -1,0 +1,518 @@
+<html>
+
+<head>
+  <title>CSS Type - Final</title>
+  <link rel="stylesheet" href="font-final-style.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="html2canvas.min.js"></script>
+  <script type="text/javascript" src="canvas2image.js"></script>
+  <script type="text/javascript" src="reimg.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <script>
+    var opacity = 1;
+    var tagName = "";
+    $(document).ready(function() {
+      // Giphy API defaults
+      const giphy = {
+        baseURL: "https://api.giphy.com/v1/gifs/",
+        key: "BqMv9oem9acGZOrb3useohHbuD00BD8K",
+        tag: "reaction",
+        type: "random",
+        rating: "pg-13"
+      };
+      // Target gif-wrap container
+      const $gif_wrap = $("body");
+      // Giphy API URL
+      let giphyURL = encodeURI(
+        giphy.baseURL +
+        giphy.type +
+        "?api_key=" +
+        giphy.key +
+        "&tag=" +
+        tagName +
+        "&rating=" +
+        giphy.rating
+      );
+
+      // Call Giphy API and render data
+      var newGif = () => $.getJSON(giphyURL, json => renderGif(json.data));
+
+      // Display Gif in gif wrap container
+      var renderGif = _giphy => {
+        // Set gif as bg image
+        $gif_wrap.css({
+          "background-image": 'url("' + _giphy.image_original_url + '")'
+        });
+      };
+
+      // newGif();
+
+      // $('body').click(function(e) {
+      //   newGif();
+      //   console.log("Next gif loaded");
+      // });
+
+      // Call Giphy API for new gif
+      // newGif();
+
+      $(document).keypress(function(e) {
+        console.log(e.keyCode);
+        if (e.which == 97) {
+          tagName += "a";
+          $.ajax({
+            url: "a.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 98) {
+          tagName += "b";
+          $.ajax({
+            url: "b.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 99) {
+          tagName += "c";
+          $.ajax({
+            url: "c.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 100) {
+          tagName += "d";
+          $.ajax({
+            url: "d.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 101) {
+          tagName += "e";
+          $.ajax({
+            url: "e.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 102) {
+          tagName += "f";
+          $.ajax({
+            url: "f.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 103) {
+          tagName += "g";
+          $.ajax({
+            url: "g.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 104) {
+          tagName += "h";
+          $.ajax({
+            url: "h.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 105) {
+          tagName += "i";
+          $.ajax({
+            url: "i.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 106) {
+          tagName += "j";
+          $.ajax({
+            url: "j.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 107) {
+          tagName += "k";
+          $.ajax({
+            url: "k.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 108) {
+          tagName += "l";
+          $.ajax({
+            url: "l.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 109) {
+          tagName += "m";
+          $.ajax({
+            url: "m.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 110) {
+          tagName += "n";
+          $.ajax({
+            url: "n.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 111) {
+          tagName += "o";
+          $.ajax({
+            url: "o.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 112) {
+          tagName += "p";
+          $.ajax({
+            url: "p.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 113) {
+          tagName += "q";
+          $.ajax({
+            url: "q.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 114) {
+          tagName += "r";
+          $.ajax({
+            url: "r.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 115) {
+          tagName += "s";
+          $.ajax({
+            url: "s.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 116) {
+          tagName += "t";
+          $.ajax({
+            url: "t.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 117) {
+          tagName += "u";
+          $.ajax({
+            url: "u.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 118) {
+          tagName += "v";
+          $.ajax({
+            url: "v.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 119) {
+          tagName += "w";
+          $.ajax({
+            url: "w.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 120) {
+          tagName += "x";
+          $.ajax({
+            url: "x.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 121) {
+          tagName += "y";
+          $.ajax({
+            url: "y.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 122) {
+          tagName += "z";
+          $.ajax({
+            url: "z.html",
+            success: function(data) {
+              $('.container').append(data);
+              $('.letter, .letter-round').draggable({
+                containment: "body"
+              });
+            },
+            dataType: 'html'
+          });
+        } else if (e.which == 13) {
+          // var back = ["#134AD4","#F35A5D","#CC2B34","#6C9E91","#5D3EBE", "#5290C0","#FDCE41","#D1A65C","#A58474", "f6f6f6", "#09080D"];
+          // var rand = back[Math.floor(Math.random() * back.length)];
+          // // console.log(rand);
+          // $("body").get(0).style.setProperty("--text-color", rand);
+          console.log(tagName);
+          newGif();
+        } else if (e.which == 8) {
+          tagName = "";
+          $('.letter, .letter-round').each(function() {
+            $(this).hide(400, function() {
+              $(this).remove();
+            });
+          });
+        }
+      });
+
+      $(document).keyup(function(e) {
+        if (e.which == 38) {
+          console.log("key up");
+          opacity = opacity + 0.05;
+          if (opacity > 1) {
+            opacity = 1;
+          }
+          $('.letter, .letter-round').each(function() {
+            $(this).children("*").css('opacity', opacity);
+          });
+        } else if (e.which == 40) {
+          opacity = opacity - 0.05;
+          if (opacity <= 0.25) {
+            opacity = 0.25;
+          }
+          $('.letter, .letter-round').each(function() {
+            $(this).children("*").css('opacity', opacity);
+          });
+        }
+      });
+
+      // $('.body').bind('click', clickHandlerA);
+
+      $('.help').click(function(e) {
+        $('.help-container').toggleClass('help-active');
+      });
+
+      // $('.capture').click(function() {
+      //   html2canvas(document.body).then(function(canvas) {
+      //     document.body.appendChild(canvas);
+      //   });
+      // });
+
+      $('.capture').click(function() {
+        // pdf();
+        capture();
+      });
+
+     $('.close').click(function() {
+       $('canvas').fadeOut('slow').remove();
+       $('.canvas-capture').css('display', 'none');
+       $('.close').css('display', 'none');
+     });
+
+    function capture() {
+      html2canvas($('body'), {
+        useCORS: true,
+        allowTaint: true,
+        taintTest: false,
+        onrendered: function(canvas) {
+          // var imgString = canvas.toDataURL("image/png");
+          // theCanvas = canvas;
+          // document.body.appendChild(canvas);
+          // $('body').setAttribute('crossOrigin','anonymous');
+          $('.canvas-capture').append(canvas);
+          $('.canvas-capture').css('display', 'block');
+          $('canvas').css({
+            width: "1680px",
+            height: "889px",
+            position: "fixed",
+            top: "0px",
+            left: "0px",
+            opacity: "1",
+            transform: "scale(0.8)",
+            'z-index': "99999999",
+            border: '5px white solid',
+            transition: "transform 0.3s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1), transform 0.3s cubic-bezier(0.42, 0, 0.58, 1)"
+          });
+
+          $('.close').css('display', 'block');
+
+          // Convert and download as image
+          // Canvas2Image.saveAsPNG(canvas);
+
+          // $("#img-out").append(canvas);
+          // var a = document.createElement('a');
+          // a.href = imgString;
+          // a.download = "image.png";
+          // document.body.appendChild(a);
+          // a.click();
+          // document.body.removeChild(a);
+          // $('#image').attr('src', canvas).fadeIn(200);
+        }
+      });
+    }
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container"></div>
+  <div class="help">
+    <i class="fas fa-question-circle help-icon"></i>
+  </div>
+  <div class="capture">
+    <i class="fas fa-download download-icon"></i>
+  </div>
+  <div class="canvas-capture"></div>
+  <div class="close">
+    <i class="fas fa-times-circle download-icon"></i>
+  </div>
+  <img src="" id="image" style="display: none; position: absolute; top: 30%; left: 30%; z-index: 1000;" />
+  <div class="help-container">
+    <div class="help-grid-container">
+      <div><i class="fas fa-keyboard help-grid-icons"></i></div>
+      <div>Press Keys to "Type"</div>
+      <div><i class="fas fa-sign-in-alt help-grid-icons"></i></div>
+      <div>Press Enter to Change Colors</div>
+      <div><i class="fas fa-fast-backward help-grid-icons"></i></div>
+      <div>Press Backspace to Delete all Text</div>
+      <div><i class="fas fa-angle-double-up help-grid-icons"></i> <i class="fas fa-angle-double-down help-grid-icons"></i></div>
+      <div>Press Up/Down arrow to change opacity</div>
+      <div> &nbsp;</div>
+      <div> &nbsp;</div>
+      <div> &nbsp;</div>
+      <div> &nbsp;</div>
+      <div> &nbsp;</div>
+      <div> &nbsp;</div>
+      <div><i class="fas fa-arrows-alt help-grid-icons"></i></div>
+      <div>Click, hold and drag letters to create your own Composition!</div>
+    </div>
+  </div>
+</body>
+
+<script>
+</script>
+
+</html>

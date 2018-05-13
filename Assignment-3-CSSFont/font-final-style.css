@@ -1,0 +1,625 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* margin-bottom: 25px!important; */
+  background: var(--bg-color);
+  -webkit-user-select: none;
+  user-select: none;
+  --bg-color: #F1F3F2;
+  --text-color: #CC2B34;
+  transition: all .25s ease;
+  background-image: url('loader.gif') 50% no-repeat;
+  background-size: cover;
+  /* overflow: hidden; */
+}
+
+.help {
+  position: fixed;
+  right: 2.5%;
+  bottom: 3%;
+  z-index: 1001;
+}
+
+.help-icon {
+  color: var(--text-color);
+  font-size: 2.5em;
+  opacity: 0.55;
+  transition: all .25s ease;
+}
+
+.help-icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.capture {
+  position: fixed;
+  right: 2.5%;
+  bottom: 10%;
+  /* z-index: 1001; */
+}
+
+.canvas-capture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1001;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.close {
+  position: fixed;
+  right: 2.5%;
+  top: 3%;
+  display: none;
+  z-index: 10001;
+}
+
+.download-icon {
+  color: var(--text-color);
+  font-size: 2.5em;
+  opacity: 0.55;
+  transition: all .25s ease;
+}
+
+.download-icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.help-container {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.75);
+  font-family: "Helvetica", sans-serif;
+  font-size: 16pt;
+  color: white;
+  transition: transform .25s ease-in-out;
+  transform: translateY(-9999px);
+  opacity: 0;
+}
+
+.help-active {
+  transform: translateY(-889px)!important;
+  opacity: 1;
+}
+
+.help-grid-container {
+  display: grid;
+  height: 20%;
+  width: 30%;
+  grid-template-columns: 0.10fr 1fr;
+  grid-template-rows: minmax(25px, 50px);
+  /* grid-gap: 10px; */
+}
+
+.help-grid-container > div {
+  /* border: 1px white solid; */
+  align-self: center;
+  justify-self: start;
+}
+
+.help-grid-container:nth-child(odd) {
+  justify-self: end!important;
+}
+
+.help-grid-icons {
+  font-size: 18pt;
+  color: var(--text-color);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* overflow: scroll; */
+}
+
+.letter {
+  width: 15vmin;
+  height: 20vmin;
+  /* border: lightgray 1px solid; */
+  margin: 25px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn .75s ease-in-out forwards;
+  /* transform: translate3d(0px, -25px, 0px); */
+  transition: all 0.25 ease;
+  z-index: 999;
+  cursor: grab;
+}
+
+.letter-round {
+  width: 17vmin;
+  height: 20vmin;
+  /* border: lightgray 1px solid; */
+  margin: 50px 25px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn .5s ease-in-out forwards;
+  /* transform: translate3d(0px, -25px, 0px); */
+  transition: all 0.25 ease;
+  z-index: 999;
+}
+
+.letter, .letter-round {
+  cursor: grab;
+}
+
+.letter:active, .letter-round:active {
+  cursor: grabbing;
+}
+
+.rounder {
+  width: 19vmin!important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0px, -25px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+.leftline {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 33.33%;
+  background: var(--text-color);
+}
+
+.rightline {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 33.33%;
+  background: var(--text-color);
+}
+
+.topline {
+  position: absolute;
+  top: 0;
+  height: 25%;
+  width: 100%;
+  background: var(--text-color);
+}
+
+.bottomline {
+  position: absolute;
+  bottom: 0;
+  height: 25%;
+  width: 100%;
+  background: var(--text-color);
+}
+
+.middleline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 25%;
+  width: 100%;
+  background: var(--text-color);
+}
+
+.centerline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  width: 33.33%;
+  background: var(--text-color);
+}
+
+.lowerleftline {
+  position: absolute;
+  right: 0;
+  top: 45%;
+  height: 75%;
+  width: 33.33%;
+  background: var(--text-color);
+}
+
+.thinner {
+  width: 27%!important;
+}
+
+.uppershortline {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 70%;
+  width: 33.33%;
+  background: var(--text-color);
+}
+
+.outer {
+  overflow: visible!important;
+}
+
+.circleOuter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--text-color);
+  border-radius: 100%;
+}
+
+.middleDiagonal {
+  position: absolute;
+  width: 33.33%;
+  height: 100%;
+  background: var(--text-color);
+  transform: skew(26.5deg);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.semiCircleOuter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--text-color);
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.topsemiCircleOuter {
+  position: absolute;
+  width: 100%;
+  height: 65%;
+  background: var(--text-color);
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 100%;
+  top: 0;
+  left: 0;
+}
+
+.lineRounded {
+  border-radius: 10px!important;
+}
+
+.semiCircleRounded {
+  border-bottom-left-radius: 10px!important;
+  border-top-left-radius: 10px!important;
+}
+
+.triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+	height: 0;
+	border-left: 9.5vmin solid transparent;
+	border-right: 9.5vmin solid transparent;
+	border-bottom: 20.5vmin solid var(--text-color);
+}
+
+.upperSemiCircle {
+  position: absolute;
+  width: 100%;
+  height: 55%;
+  background: var(--text-color);
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.lowerSemiCircle {
+  position: absolute;
+  width: 100%;
+  height: 55%;
+  background: var(--text-color);
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  bottom: 0;
+  left: 0;
+}
+
+.cutoffSemiCircle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--text-color);
+  border-bottom-left-radius: 500px;
+  border-top-left-radius: 500px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.cutofflowerSemiCircle {
+  position: absolute;
+  width: 100%;
+  height: 33.33%;
+  background: var(--text-color);
+  border-bottom-left-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+  bottom: 0;
+}
+
+.k-lineTop {
+  position: absolute;
+  width: 33.33%;
+  height: 51%;
+  background: var(--text-color);
+  top: 0;
+  right: 19%;
+  margin: auto;
+  transform: skew(-30deg);
+}
+
+.k-lineBottom {
+  position: absolute;
+  width: 33.33%;
+  height: 51%;
+  background: var(--text-color);
+  bottom: 0;
+  right: 19%;
+  margin: auto;
+  transform: skew(30deg);
+}
+
+.k-topTriangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-top: 18vmin solid var(--text-color);
+	border-right: 15vmin solid transparent;
+}
+
+.k-bottomTriangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-bottom: 18vmin solid var(--text-color);
+	border-right: 15vmin solid transparent;
+}
+
+.m-lineLeft {
+  position: absolute;
+  width: 33.33%;
+  height: 45%;
+  background: var(--text-color);
+  top: 0;
+  left: 19%;
+  margin: auto;
+  transform: skew(30deg);
+}
+
+.m-lineRight {
+  position: absolute;
+  width: 33.33%;
+  height: 45%;
+  background: var(--text-color);
+  top: 0;
+  right: 19%;
+  margin: auto;
+  transform: skew(-30deg);
+}
+
+.m-triangle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 10vmin solid var(--text-color);
+}
+
+.lowerleftTriangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-bottom: 15vmin solid var(--text-color);
+	border-right: 15vmin solid transparent;
+}
+
+.rightleftTriangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-bottom: 20vmin solid var(--text-color);
+	border-right: 15vmin solid transparent;
+}
+
+.rightrightTriangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-bottom: 20vmin solid var(--text-color);
+	border-left: 15vmin solid transparent;
+}
+
+.s-topSemiCircle {
+  position: absolute;
+  width: 110%;
+  height: 43%;
+  background: var(--text-color);
+  border-bottom-left-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+  top: 2%;
+  left: -17%;
+  transform: rotate(-225deg);
+  transform-origin: center;
+}
+
+.s-bottomSemiCircle {
+  position: absolute;
+  width: 110%;
+  height: 43%;
+  background: var(--text-color);
+  border-bottom-left-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+  bottom: 2%;
+  left: 5%;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+.stretchedSemiCircle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--text-color);
+  border-bottom-left-radius: 47%;
+  border-bottom-right-radius: 47%;
+  bottom: 0;
+  left: 0;
+}
+
+.strechedWholeTriangle {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0;
+	height: 0;
+	border-left: 7.5vmin solid transparent;
+	border-right: 7.5vmin solid transparent;
+	border-top: 20vmin solid var(--text-color);
+}
+
+.strechedHalfTriangle-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-left: 6.5vmin solid transparent;
+	border-right: 6.5vmin solid transparent;
+	border-top: 20vmin solid var(--text-color);
+}
+
+.strechedHalfTriangle-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+	height: 0;
+	border-left: 6.5vmin solid transparent;
+	border-right: 6.5vmin solid transparent;
+	border-top: 20vmin solid var(--text-color);
+}
+
+.strechedHalfTriangle-left-rev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+	height: 0;
+	border-left: 6vmin solid transparent;
+	border-right: 6vmin solid transparent;
+	border-bottom: 20vmin solid var(--text-color);
+}
+
+.strechedHalfTriangle-right-rev {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+	height: 0;
+	border-left: 6vmin solid transparent;
+	border-right: 6vmin solid transparent;
+	border-bottom: 20vmin solid var(--text-color);
+}
+
+.x-topTriangle {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 7.5vmin solid transparent;
+  border-right: 7.5vmin solid transparent;
+  border-top: 15vmin solid var(--text-color);
+}
+
+.x-bottomTriangle {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 7.5vmin solid transparent;
+  border-right: 7.5vmin solid transparent;
+  border-bottom: 15vmin solid var(--text-color);
+}
+
+.y-topTriangle {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 8.5vmin solid transparent;
+  border-right: 8.5vmin solid transparent;
+  border-top: 15vmin solid var(--text-color);
+}
+
+.z-diagonal {
+  position: absolute;
+  width: 45%;
+  height: 100%;
+  background: var(--text-color);
+  transform: skew(-40deg);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
